@@ -1,8 +1,8 @@
 export const renderTrafficOvertime = (dataObject) => {
   if (dataObject === null || typeof dataObject === "undefined") {
     console.error("Failed to fetch data. Please try again.");
+    return;
   }
-
   const trafficData = dataObject?.chart;
   const trafficDateRange = trafficData?.x;
   const websiteVisits = trafficData?.visits;

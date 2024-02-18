@@ -2,7 +2,6 @@ export const renderCustomEventsData = (dataObject) => {
   if (dataObject === null || dataObject === "undefined") {
     console.error("Could no fetch data. Please try again later.");
   }
-
   const customEventsObj = dataObject?.customs;
   const eventsOverviewDiv = document.querySelector("#events-overview");
 
