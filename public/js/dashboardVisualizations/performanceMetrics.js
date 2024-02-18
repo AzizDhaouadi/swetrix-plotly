@@ -3,15 +3,12 @@ export const renderPerformanceBirdsEyeData = async (dataObject) => {
     console.error("Failed to fetch the data. Please try again later.");
   }
 
-  console.log(dataObject?.chart);
-
   const performanceCharts = dataObject?.chart;
   const { domLoad, render, ttfb } = performanceCharts;
   const frontendArray = [];
   domLoad.map((num, index) => {
     frontendArray.push(num + render[index]);
   });
-  console.log(frontendArray);
   const returnFrontendMetric = () => {
     let frontendMetric = 0;
     for (let feMetric of frontendArray) {
