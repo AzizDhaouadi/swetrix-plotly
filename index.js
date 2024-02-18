@@ -59,6 +59,30 @@ app.get("/fetch/performanceData", async (req, res) => {
   }
 });
 
+// Defining route for getting traffic metrics
+app.get("/fetch/trafficMetricsData", async (req, res) => {
+  const baseUrl = "https://api.swetrix.com/v1/log/birdseye";
+  const projectID = process.env.PROJECTID;
+  const period = "4w";
+  const urlToFetch = `${baseUrl}?pid=${projectID}&period=${period}`;
+
+  try {
+    const trafficMetricsDataRequest = await fetch(urlToFetch, {
+      headers: {
+        "x-api-key": process.env.APIKEY,
+      },
+    });
+
+    if (trafficMetricsDataRequest.ok) {
+      const trafficMetricsData = await trafficMetricsDataRequest.json();
+      res.json(trafficMetricsData);
+    }
+  } catch (error) {
+    console.error("Failed to fetch traffic data", error);
+    res.status(500).json({ message: "Failed to fetch external data" });
+  }
+});
+
 // Serve static files from the 'public' directory
 app.use(express.static(path.join(__dirname, "/public")));
 
