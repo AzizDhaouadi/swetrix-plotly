@@ -22,41 +22,30 @@ export const renderTrafficGeoBreakdownData = async (dataObject) => {
     z: countriesVisitorsCount,
     zmin: 0,
     zmax: Math.max(...countriesVisitorsCount),
-    colorscale: [
-      [0, "rgb(242,240,247)"],
-      [0.2, "rgb(218,218,235)"],
-
-      [0.4, "rgb(188,189,220)"],
-      [0.6, "rgb(158,154,200)"],
-
-      [0.8, "rgb(117,107,177)"],
-      [1, "rgb(84,39,143)"],
-    ],
-    autocolorscale: false,
+    autocolorscale: true,
     showscale: true,
-    marker: {
-      line: {
-        color: "black",
-        width: 1,
-      },
-    },
   };
 
   const chartLayout = {
-    title: "Unique visitors geographics distribution",
+    title: "Unique visitors geographic distribution",
+    width: 1200,
+    height: 1000,
     geo: {
-      projection: {
-        type: "equirectangular",
-      },
+      countrycolor: "rgb(255, 255, 255)",
+      showland: true,
+      landcolor: "rgb(217, 217, 217)",
       showlakes: true,
-      lakecolor: "rgb(255,255,255)",
+      lakecolor: "rgb(255, 255, 255)",
+      subunitcolor: "rgb(255, 255, 255)",
       scope: "world",
     },
   };
 
   const chartConfig = {
     displayModeBar: false,
+    dragMode: false,
+    scrollZoom: false,
   };
 
-  Plotly.newPlot("traffic-geo", [trafficGeoVisualization], chartLayout, chartConfig);
+  Plotly.newPlot("traffic-geo", [trafficGeoVisualization], chartLayout, chartConfig, { showLink: false });
 };
