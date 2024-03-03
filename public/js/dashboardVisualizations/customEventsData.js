@@ -27,7 +27,7 @@ export const renderCustomEventsData = (dataObject) => {
   };
 
   const chartLayout = {
-    title: "Custom Events Distribution",
+    title: "Custom Events",
     height: 600,
     width: 600,
     legend: {
