@@ -29,6 +29,7 @@ export const renderPagesAndReferrersData = (dataObject) => {
 
   const pagesTrafficTableVisualization = {
     type: "table",
+    columnwidth: [600, 100],
     header: {
       values: [["<b>Page</b>"], ["<b>Visitors</b>"]],
       align: "center",
@@ -38,7 +39,7 @@ export const renderPagesAndReferrersData = (dataObject) => {
     },
     cells: {
       values: values,
-      align: "center",
+      align: "left",
       line: { color: "black", width: 1 },
       font: { family: "Arial", size: 11, color: ["black"] },
     },
@@ -46,8 +47,9 @@ export const renderPagesAndReferrersData = (dataObject) => {
 
   const referrersTrafficTableVisualization = {
     type: "table",
+    columnwidth: [650, 50],
     header: {
-      values: [["<b>Page Refferer</b>"], ["<b>Visitors</b>"]],
+      values: [["<b>Page Refferer</b>"], ["<b>Visits</b>"]],
       align: "center",
       line: { width: 1, color: "black" },
       fill: { color: "grey" },
@@ -55,7 +57,7 @@ export const renderPagesAndReferrersData = (dataObject) => {
     },
     cells: {
       values: referrersValues,
-      align: "center",
+      align: "left",
       line: { color: "black", width: 1 },
       font: { family: "Arial", size: 11, color: ["black"] },
     },
@@ -64,11 +66,13 @@ export const renderPagesAndReferrersData = (dataObject) => {
   const pagesChartLayout = {
     title: "Page Visitors Breakdown",
     height: 700,
-    width: 900,
+    width: 700,
   };
 
   const referrersChartLayout = {
     title: "Referrer Visitors Breakdown",
+    height: 700,
+    width: 700,
   };
 
   const chartConfig = {
