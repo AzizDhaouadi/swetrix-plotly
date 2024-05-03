@@ -6,3 +6,17 @@ body {
 .g-1 {
     gap: 3rem;
 }
+
+dialog {
+    width: 50% !important;
+    border: none;
+    font-family: var(--bs-body-text-font);
+}
+
+[data-lead-capture-modal] [data-close-lead-capture-modal] {
+    width: 2rem;
+    height: 2rem;
+    background-repeat: no-repeat;
+    background-size: contain;
+    cursor: pointer;
+}
