@@ -91,8 +91,8 @@ app.get("/fetch/trafficMetricsData", async (req, res) => {
 
 app.post("/analyze", async (req, res) => {
   const messages = [
-    { role: "system", content: "You are a helpful assistant" },
-    { role: "user", content: `Analyze and offer insights about the following data: ${req.body}.` },
+    { role: "system", content: "You are a helpful data analyst designed to output JSON." },
+    { role: "user", content: `Analyze and offer insights about the following data: ${req.body}. Return 3 insights and 3 recommendations. The JSON should use have the follow key:value, insight:answer or recommendation:answer` },
   ];
   const model = "gpt-4-turbo-preview";
 
@@ -100,6 +100,7 @@ app.post("/analyze", async (req, res) => {
     const completion = await openai.chat.completions.create({
       messages: messages,
       model: model,
+      response_format: {"type": "json_object"}
     });
     if (typeof completion === "undefined") {
       res.send("Failed to fait the translation");
